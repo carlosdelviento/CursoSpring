@@ -1,0 +1,7 @@
+uy\com\cb\web\WebConfig.class
+uy\com\cb\dao\PersonaDao.class
+uy\com\cb\domain\Persona.class
+uy\com\cb\servicio\PersonaService.class
+uy\com\cb\HolaSpringApplication.class
+uy\com\cb\servicio\PersonaServiceImpl.class
+uy\com\cb\web\ControladorInicio.class
