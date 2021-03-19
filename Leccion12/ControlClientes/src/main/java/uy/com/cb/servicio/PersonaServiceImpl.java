@@ -28,6 +28,7 @@ public class PersonaServiceImpl implements PersonaService{
 	}
 
 	@Override
+	@Transactional
 	public void eliminar(Persona persona) {
 		personaDao.delete(persona);
 	}
