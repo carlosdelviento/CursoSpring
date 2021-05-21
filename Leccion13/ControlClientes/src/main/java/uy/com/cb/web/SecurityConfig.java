@@ -31,19 +31,34 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter{
 	}
 	
 	/**
-	 * autorizacion
+	 * authentication
+	 */
+	/*@Override
+	 protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		 auth.inMemoryAuthentication()
+			 .withUser("admin")
+				 .password("{noop}123")
+				 .roles("ADMIN","USER")
+			.and()
+			.withUser("user")
+				.password("{noop}123")
+				.roles("USER");
+	 }*/
+	 
+	/**
+	 * authorization
 	 */
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
 				.antMatchers("/editar/**","/agregar/**","/eliminar")
-				.hasRole("ADMIN")
+					.hasRole("ADMIN")
 				.antMatchers("/")
-				.hasAnyRole("USER","ADMIN")
+					.hasAnyRole("USER","ADMIN")
 				.and()
-				.formLogin()
-				.loginPage("/login")
+					.formLogin()
+					.loginPage("/login")
 				.and()
-				.exceptionHandling().accessDeniedPage("/errores/403");
+					.exceptionHandling().accessDeniedPage("/errores/403");
 	}
 }

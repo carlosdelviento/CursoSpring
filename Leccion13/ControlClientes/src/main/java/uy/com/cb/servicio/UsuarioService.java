@@ -25,10 +25,11 @@ public class UsuarioService implements UserDetailsService{
 	@Override
 	@Transactional(readOnly=true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+		
 		Usuario usuario = usuarioDao.findByUsername(username);
 		
 		if(usuario == null) {
-			throw new UsernameNotFoundException(username);
+			throw new UsernameNotFoundException(String.format("El nombre de usuario es requerido", username));
 		}
 		
 		var roles = new ArrayList<GrantedAuthority>();
