@@ -119,14 +119,14 @@ public class ControladorInicio {
 	 * Rest Services
 	 */
 	@ResponseBody
-	@GetMapping("/personas")
+	@GetMapping("/webservices/personas")
 	public List<Persona> getPersonas(){
 		
 		return personaService.listarPersonas(); 
 	}
  	
 	@ResponseBody
-	@GetMapping("/personas/{idPersona}")
+	@GetMapping("/webservices/personas/{idPersona}")
 	public Persona getPersona(@PathVariable("idPersona") Persona persona) {
 		
 		return personaService.encontrarPersona(persona);
